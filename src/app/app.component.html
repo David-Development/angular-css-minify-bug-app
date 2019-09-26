@@ -1,20 +1,54 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="test1">
+  <h2>CSS:</h2>
+  <pre>
+    <code>
+      border-top-left-radius: 1px;
+      border-bottom-left-radius: 1px;
 
+      border-top-left-radius: var(--control-border-radius);
+      border-bottom-left-radius: var(--control-border-radius);
+    </code>
+  </pre>
+
+  <h2>Result after running ng build --prod: (expected behavior)</h2>
+  <pre>
+    <code>
+      border-top-left-radius: 1px;
+      border-bottom-left-radius: 1px;
+      border-top-left-radius: var(--control-border-radius);
+      border-bottom-left-radius: var(--control-border-radius);
+    </code>
+  </pre>
+</div>
+
+<div class="test2">
+  <h2>CSS:</h2>
+  <pre>
+    <code>
+      border-top-left-radius: 1px;
+      border-bottom-left-radius: 1px;
+
+      border-top-left-radius: var(--control-border-radius);
+      border-bottom-left-radius: var(--control-border-radius);
+
+      // NOTE THE FOLLOWING TWO LINES COMPARED TO THE EXAMPLE ABOVE
+      border-top-right-radius: 0px; 
+      border-bottom-right-radius: 0px;
+
+    </code>
+  </pre>
+
+  <h2>Result after running ng build --prod:</h2>
+  <pre>
+    <code>
+      border-top-left-radius: 1px;
+      border-bottom-left-radius: 1px;
+      border-top-left-radius: var(--control-border-radius);
+      border-bottom-left-radius: var(--control-border-radius);
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px;
+      border: 1px 0px 0px 1px; <-- this line was added which is not correct as it does not make use of the variables
+    </code>
+  </pre>
+</div>

@@ -1,0 +1,30 @@
+
+:host {
+    --control-border-radius: 10px;
+}
+
+div {
+    margin: 50px;
+}
+
+div.test1 {
+    background: #65f10094;
+    
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    
+    border-top-left-radius: var(--control-border-radius);
+    border-bottom-left-radius: var(--control-border-radius);
+}
+
+div.test2 {
+    background: #ff0000a8;
+    
+    border-top-left-radius: 1px;
+    border-bottom-left-radius: 1px;
+    
+    border-top-left-radius: var(--control-border-radius);
+    border-bottom-left-radius: var(--control-border-radius);
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
